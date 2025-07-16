@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:safar_maei/ui/home/test_test.dart';
 import 'package:safar_maei/ui/login/login_screen/Forgot%20Password/forgot_password.dart';
 import 'package:safar_maei/ui/login/login_screen/login_screen.dart';
+import 'package:safar_maei/ui/login/register_as_driver/register_as_driver_two.dart';
 import 'package:safar_maei/ui/login/register_as_driver/register_driver.dart';
 import 'package:safar_maei/ui/login/register_as_passenger/register_passenger.dart';
 import 'package:safar_maei/ui/login/register_as_passenger/verify/verify_screen.dart';
@@ -33,6 +35,8 @@ class MyApp extends StatelessWidget {
             RegisterDriver.routeName: (context) => const RegisterDriver(),
             RegisterPassenger.routeName: (context) => const RegisterPassenger(),
             VerifyScreen.routeName: (context) => const VerifyScreen(),
+            TestTest.routeName: (context) => const TestTest(),
+            RegisterAsDriverTwo.routeName: (context) =>  RegisterAsDriverTwo(),
 
 
 

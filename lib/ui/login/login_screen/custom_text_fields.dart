@@ -22,6 +22,7 @@ class CustomTextFields extends StatelessWidget {
           title,
           style: AppStyles.bodyMM,
         ),
+        SizedBox(height: 8.h),
         TextField(
           cursorColor: AppColors.stroke,
           style: AppStyles.bodyMM,

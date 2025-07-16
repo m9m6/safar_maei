@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_styles.dart';
 
@@ -40,7 +41,7 @@ class GoogleButton extends StatelessWidget {
             SizedBox(width: 8.w),
             Text(
               text,
-              style: AppStyles.myFont.copyWith(
+              style: GoogleFonts.poppins(
                 fontSize: 18.sp,
                 fontWeight: FontWeight.w500,
                 color: AppColors.primaryColor,

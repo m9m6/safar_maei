@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:safar_maei/utils/app_assets.dart';
 import 'package:safar_maei/utils/app_colors.dart';
 import 'package:safar_maei/utils/app_styles.dart';
+import '../../home/test_test.dart';
+import '../../primary_colored_button.dart';
+import '../../welcome_screen/bottom_text_button_row.dart';
 import '../../welcome_screen/welcome_screen.dart';
 import 'Forgot Password/forgot_password.dart';
 import 'custom_password_field.dart';
@@ -36,6 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.noColor,
         elevation: 0,
+        scrolledUnderElevation: 0,
         automaticallyImplyLeading: false,
         toolbarHeight: 42.h,
         leading: Padding(
@@ -103,12 +108,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
                 child: Text(
                   'Forgot Password?',
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     fontSize: 12.sp,
                     color: AppColors.secondaryColor,
                     decoration: TextDecoration.underline,
                     decorationColor: AppColors.secondaryColor,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w400
                   ),
                 ),
               ),
@@ -116,34 +121,16 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 24.h),
 
               // Login Button
-              SizedBox(
-                width: double.infinity,
-                child: SizedBox(
-                  width: 335.w,
-                  height: 48.h,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primaryColor,
-                      foregroundColor: AppColors.primaryColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.r),
-                      ),
-                    ),
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        print("Email: ${_emailController.text}");
-                        print("Password: ${_passwordController.text}");
-                      }
-                    },
-                    child: Text(
-                      "Login",
-                      style: AppStyles.bodyMM.copyWith(
-                        fontSize: 18.sp,
-                        color: AppColors.white,
-                      ),
-                    ),
-                  ),
-                ),
+              PrimaryColoredButton(
+                text: "Login",
+                onTap: () {
+                  if (_formKey.currentState!.validate()) {
+                    print("Email: ${_emailController.text}");
+                    print("Password: ${_passwordController.text}");
+                  }
+                  //todo: navigation to home screen
+                  Navigator.of(context).pushNamed(TestTest.routeName);
+                },
               ),
 
               SizedBox(height: 48.h),
@@ -158,38 +145,12 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 32.h),
 
               // Register Link
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Don’t have an account?',
-                    style: AppStyles.myFont.copyWith(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.black,
-                    ),
-                  ),
-                  SizedBox(width: 8.w),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed(WelcomeScreen.routeName);
-                    },
-                    style: TextButton.styleFrom(
-                      foregroundColor: AppColors.noColor,
-                      overlayColor: AppColors.noColor,
-                      padding: EdgeInsets.zero,
-                      minimumSize: Size.zero,
-                    ),
-                    child: Text(
-                      'Register',
-                      style: AppStyles.myFont.copyWith(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.secondaryColor,
-                      ),
-                    ),
-                  ),
-                ],
+              BottomTextButtonRow(
+                textBefore: 'Don’t have an account?',
+                buttonText: 'Register',
+                onPressed: () {
+                  Navigator.of(context).pushNamed(WelcomeScreen.routeName);
+                },
               ),
             ],
           ),

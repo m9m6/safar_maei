@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safar_maei/ui/login/register_as_passenger/verify/verify_screen.dart';
+import 'package:safar_maei/ui/welcome_screen/bottom_text_button_row.dart';
 
 import '../../../utils/app_assets.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_styles.dart';
+import '../../primary_colored_button.dart';
 import '../login_screen/custom_password_field.dart';
 import '../login_screen/custom_text_fields.dart';
 import '../login_screen/google_button.dart';
@@ -12,6 +14,7 @@ import '../login_screen/login_screen.dart';
 
 class RegisterPassenger extends StatefulWidget {
   static String routeName = 'RegisterPassenger';
+
   const RegisterPassenger({super.key});
 
   @override
@@ -36,6 +39,7 @@ class _RegisterPassengerState extends State<RegisterPassenger> {
       appBar: AppBar(
         backgroundColor: AppColors.noColor,
         elevation: 0,
+        scrolledUnderElevation: 0,
         automaticallyImplyLeading: false,
         toolbarHeight: 42.h,
         leading: Padding(
@@ -63,11 +67,24 @@ class _RegisterPassengerState extends State<RegisterPassenger> {
               // Title
               Text('Register', style: AppStyles.title),
 
-              // Subtitle
-              Text(
-                'Register now and order your trips\neasily with the Safar Maei app',
-                style: AppStyles.bodySmallRegular,
+              // Subtitle(richText)
+              RichText(
+                text: TextSpan(
+                  style: AppStyles.bodySmallRegular,
+                  children: [
+                    TextSpan(text: 'Register now and order your trips\neasily with the '),
+                    TextSpan(
+                      text: 'Safar Maei',
+                      style: AppStyles.bodySmallRegular.copyWith(
+                        color: AppColors.primaryColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(text: ' app'),
+                  ],
+                ),
               ),
+
 
               SizedBox(height: 80.h),
 
@@ -103,36 +120,16 @@ class _RegisterPassengerState extends State<RegisterPassenger> {
 
               SizedBox(height: 24.h),
 
-              // Login Button
-              SizedBox(
-                width: double.infinity,
-                child: SizedBox(
-                  width: 335.w,
-                  height: 48.h,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primaryColor,
-                      foregroundColor: AppColors.primaryColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.r),
-                      ),
-                    ),
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        print("Email: ${_emailController.text}");
-                        print("Password: ${_passwordController.text}");
-                      }
-                      Navigator.of(context).pushNamed(VerifyScreen.routeName);
-                    },
-                    child: Text(
-                      "Register",
-                      style: AppStyles.bodyMM.copyWith(
-                        fontSize: 18.sp,
-                        color: AppColors.white,
-                      ),
-                    ),
-                  ),
-                ),
+              // Register Button
+              PrimaryColoredButton(
+                text: "Register",
+                onTap: () {
+                  if (_formKey.currentState!.validate()) {
+                    print("Email: ${_emailController.text}");
+                    print("Password: ${_passwordController.text}");
+                  }
+                  Navigator.of(context).pushNamed(VerifyScreen.routeName);
+                },
               ),
 
               SizedBox(height: 48.h),
@@ -147,38 +144,12 @@ class _RegisterPassengerState extends State<RegisterPassenger> {
               SizedBox(height: 32.h),
 
               // Register Link
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Already have an account?',
-                    style: AppStyles.myFont.copyWith(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.black,
-                    ),
-                  ),
-                  SizedBox(width: 8.w),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed(LoginScreen.routeName);
-                    },
-                    style: TextButton.styleFrom(
-                      foregroundColor: AppColors.noColor,
-                      overlayColor: AppColors.noColor,
-                      padding: EdgeInsets.zero,
-                      minimumSize: Size.zero,
-                    ),
-                    child: Text(
-                      'Login',
-                      style: AppStyles.myFont.copyWith(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.secondaryColor,
-                      ),
-                    ),
-                  ),
-                ],
+              BottomTextButtonRow(
+                textBefore: 'Already have an account?',
+                buttonText: 'Login',
+                onPressed: () {
+                  Navigator.of(context).pushNamed(LoginScreen.routeName);
+                },
               ),
             ],
           ),

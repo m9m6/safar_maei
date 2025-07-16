@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:safar_maei/ui/home/test_test.dart';
 
 import '../../../../utils/app_assets.dart';
 import '../../../../utils/app_colors.dart';
 import '../../../../utils/app_styles.dart';
+import '../../../primary_colored_button.dart';
 import '../../login_screen/custom_text_fields.dart';
 
 class VerifyScreen extends StatelessWidget {
@@ -59,32 +61,13 @@ class VerifyScreen extends StatelessWidget {
 
             SizedBox(height: 24.h),
 
-            // Login Button
-            SizedBox(
-              width: double.infinity,
-              child: SizedBox(
-                width: 335.w,
-                height: 48.h,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primaryColor,
-                    foregroundColor: AppColors.primaryColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.r),
-                    ),
-                  ),
-                  onPressed: () {
-                    //todo: User enter App
-                  },
-                  child: Text(
-                    "Register",
-                    style: AppStyles.bodyMM.copyWith(
-                      fontSize: 18.sp,
-                      color: AppColors.white,
-                    ),
-                  ),
-                ),
-              ),
+            // verify Button
+            PrimaryColoredButton(
+              text: "Register",
+              onTap: () {
+                //todo: User enter App
+                Navigator.of(context).pushNamed(TestTest.routeName);
+              },
             ),
           ],
         ),

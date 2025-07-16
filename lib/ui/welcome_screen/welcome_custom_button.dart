@@ -33,11 +33,7 @@ class WelcomeCustomButton extends StatelessWidget {
             SizedBox(width: 8.w),
             Text(
               text,
-              style: AppStyles.myFont.copyWith(
-                fontSize: 18.sp,
-                fontWeight: FontWeight.w500,
-                color: AppColors.black,
-              ),
+              style: AppStyles.welcomeButtonText
             ),
           ],
         ),

@@ -8,6 +8,7 @@ import 'package:safar_maei/utils/app_styles.dart';
 import '../login/login_screen/login_screen.dart';
 import '../login/register_as_driver/register_driver.dart';
 import '../login/register_as_passenger/register_passenger.dart';
+import 'bottom_text_button_row.dart';
 
 class WelcomeScreen extends StatelessWidget {
   static String routeName = 'WelcomeScreen';
@@ -38,16 +39,12 @@ class WelcomeScreen extends StatelessWidget {
               ),
 
               // App name
-              Text(
-                'safar maei',
-                style: AppStyles.title
-              ),
+              Text('safar maei', style: AppStyles.title),
 
               // description
               Text(
-                'join us as a user or a driver and enjoy seamless trips, smart tracking, and full control at your fingertips',
-                style: AppStyles.bodySmallRegular
-              ),
+                  'join us as a user or a driver and enjoy seamless trips, smart tracking, and full control at your fingertips',
+                  style: AppStyles.bodySmallRegular),
 
               SizedBox(height: 90.h), // Spacer
 
@@ -85,40 +82,12 @@ class WelcomeScreen extends StatelessWidget {
               SizedBox(height: 40.h),
 
               // Login row
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Already have an account?',
-                    style: AppStyles.myFont.copyWith(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.black,
-                    ),
-                  ),
-                  SizedBox(width: 8.w),
-
-                  //Login
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed(LoginScreen.routeName);
-                    },
-                    style: TextButton.styleFrom(
-                      foregroundColor: AppColors.noColor,
-                      overlayColor: AppColors.noColor,
-                      padding: EdgeInsets.zero,
-                      minimumSize: Size.zero,
-                    ),
-                    child: Text(
-                      'Login',
-                      style: AppStyles.myFont.copyWith(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.secondaryColor,
-                      ),
-                    ),
-                  ),
-                ],
+              BottomTextButtonRow(
+                textBefore: 'Already have an account?',
+                buttonText: 'Login',
+                onPressed: () {
+                  Navigator.of(context).pushNamed(LoginScreen.routeName);
+                },
               ),
             ],
           ),
