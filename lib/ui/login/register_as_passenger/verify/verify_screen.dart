@@ -5,6 +5,7 @@ import 'package:safar_maei/ui/home/test_test.dart';
 import '../../../../utils/app_assets.dart';
 import '../../../../utils/app_colors.dart';
 import '../../../../utils/app_styles.dart';
+import '../../../home/home_as_passenger/home_screens/home_ride_screens/home_screen_ride.dart';
 import '../../../primary_colored_button.dart';
 import '../../login_screen/custom_text_fields.dart';
 
@@ -66,7 +67,7 @@ class VerifyScreen extends StatelessWidget {
               text: "Register",
               onTap: () {
                 //todo: User enter App
-                Navigator.of(context).pushNamed(TestTest.routeName);
+                Navigator.of(context).pushNamed(HomeScreenRide.routeName);
               },
             ),
           ],

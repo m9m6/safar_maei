@@ -13,7 +13,7 @@ class AppColors{
   static const Color black = Color(0xff000000);
   static  Color black60 = Color(0x99000000);
   static  Color black40 = Color(0x66000000);
-  static  Color blackGray = Color(0xffBEBEBE);
+  static const Color blackGray = Color(0xffBEBEBE);
   static  Color stroke = Color(0xffF1F1F1);
 
  //white gradients
@@ -30,6 +30,9 @@ class AppColors{
 
   //transparent
   static const Color noColor = Colors.transparent;
+
+  static const Color gray06 = Color(0xff0D0D0D);
+
 
 
 

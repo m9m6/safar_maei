@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:safar_maei/ui/login/register_as_driver/register_as_driver_vehicle_info.dart';
 import 'dart:io';
 
 import '../../../utils/app_assets.dart';
@@ -212,7 +213,9 @@ class _RegisterAsDriverTwoState extends State<RegisterAsDriverTwo> {
             PrimaryColoredButton(
               text: "Next",
               onTap: () {
-                // Validate all fields are filled
+                Navigator.of(context).pushNamed(RegisterAsDriverVehicleInfo.routeName);
+
+                /// Validate all fields are filled
                 if (_passwordController.text.isEmpty ||
                     _confirmPasswordController.text.isEmpty ||
                     _idController.text.isEmpty) {
@@ -239,7 +242,7 @@ class _RegisterAsDriverTwoState extends State<RegisterAsDriverTwo> {
                 }
 
                 // Navigate to verify screen if all validations pass
-                Navigator.of(context).pushNamed(VerifyScreen.routeName);
+                // Navigator.of(context).pushNamed(RegisterAsDriverVehicleInfo.routeName);
               },
             ),
 
@@ -250,6 +253,22 @@ class _RegisterAsDriverTwoState extends State<RegisterAsDriverTwo> {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import 'package:flutter/material.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 //

@@ -16,6 +16,7 @@ static final TextStyle welcomeButtonText2 = GoogleFonts.poppins(fontSize: 16.sp,
 static final TextStyle uploadPicButton= GoogleFonts.poppins(fontSize: 16.sp, fontWeight: FontWeight.w500, color: Colors.black);
 
 
+static final TextStyle rideButtonTextStyle= GoogleFonts.poppins(fontSize: 12.sp, fontWeight: FontWeight.w500, color: Colors.black);
 
 
 

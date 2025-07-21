@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../utils/app_assets.dart';
 import '../../../../utils/app_colors.dart';
 import '../../../../utils/app_styles.dart';
+import '../../../home/home_as_passenger/home_screens/home_ride_screens/home_screen_ride.dart';
 import '../../../home/test_test.dart';
 import '../../../primary_colored_button.dart';
 import '../custom_text_fields.dart';
@@ -131,7 +132,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         currentStage = ResetStage.newPassword;
                       } else if (currentStage == ResetStage.newPassword) {
                         //todo: navigation after setting up new pass
-                        Navigator.of(context).pushNamed(TestTest.routeName);
+                        Navigator.of(context).pushNamed(HomeScreenRide.routeName);
                       }
                     });
                   },

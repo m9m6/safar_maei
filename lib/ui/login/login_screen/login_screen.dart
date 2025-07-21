@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:safar_maei/utils/app_assets.dart';
 import 'package:safar_maei/utils/app_colors.dart';
 import 'package:safar_maei/utils/app_styles.dart';
+import '../../home/home_as_passenger/home_screens/home_ride_screens/home_screen_ride.dart';
 import '../../home/test_test.dart';
 import '../../primary_colored_button.dart';
 import '../../welcome_screen/bottom_text_button_row.dart';
@@ -101,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
               SizedBox(height: 5.h),
 
-              // Forget Password link (بدون أي تعديل عليه)
+              // Forget Password link
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).pushNamed(ForgotPassword.routeName);
@@ -129,7 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     print("Password: ${_passwordController.text}");
                   }
                   //todo: navigation to home screen
-                  Navigator.of(context).pushNamed(TestTest.routeName);
+                  Navigator.of(context).pushNamed(HomeScreenRide.routeName);
                 },
               ),
 

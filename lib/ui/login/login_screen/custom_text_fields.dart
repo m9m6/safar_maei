@@ -6,11 +6,13 @@ import '../../../utils/app_styles.dart';
 class CustomTextFields extends StatelessWidget {
   final String title;
   final String hintText;
+  final double? height;
 
   const CustomTextFields({
     super.key,
     required this.title,
     required this.hintText,
+    this.height,
   });
 
   @override
@@ -23,31 +25,34 @@ class CustomTextFields extends StatelessWidget {
           style: AppStyles.bodyMM,
         ),
         SizedBox(height: 8.h),
-        TextField(
-          cursorColor: AppColors.stroke,
-          style: AppStyles.bodyMM,
-          decoration: InputDecoration(
-            hintText: hintText,
-            hintStyle: AppStyles.textFieldHintTextStyle,
-            contentPadding: EdgeInsets.symmetric(
-              horizontal: 16.w,
-              vertical: 12.h,
-            ),
-            isDense: true,
-            filled: true,
-            fillColor: AppColors.white,
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16.r),
-              borderSide: BorderSide(
-                color: AppColors.stroke,
-                width: 1.w,
+        SizedBox(
+          height: height ?? 48.h,
+          child: TextField(
+            cursorColor: AppColors.stroke,
+            style: AppStyles.bodyMM,
+            decoration: InputDecoration(
+              hintText: hintText,
+              hintStyle: AppStyles.textFieldHintTextStyle,
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: 16.w,
+                vertical: (height ?? 12.h),//48.h? or 12.h? ///something feels off here
               ),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16.r),
-              borderSide: BorderSide(
-                color: AppColors.primaryColor,
-                width: 1.w,
+              isDense: true,
+              filled: true,
+              fillColor: AppColors.white,
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16.r),
+                borderSide: BorderSide(
+                  color: AppColors.stroke,
+                  width: 1.w,
+                ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16.r),
+                borderSide: BorderSide(
+                  color: AppColors.primaryColor,
+                  width: 1.w,
+                ),
               ),
             ),
           ),
